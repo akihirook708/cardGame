@@ -1,14 +1,21 @@
 body {
     background: #ddd;
+    font-family: 'Noto Serif JP',"Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
 .cardSvg {
+    margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.cardTable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .table {
-    width: 1200px;
-    height: 500px;
+    width: 1100px;
+    height: 480px;
 }
 .table td {
     background-size: contain;
