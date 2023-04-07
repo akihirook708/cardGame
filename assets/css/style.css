@@ -1,0 +1,18 @@
+body {
+    background: #ddd;
+}
+.cardSvg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.table {
+    width: 1200px;
+    height: 500px;
+}
+.table td {
+    background-size: contain;
+}
+td.card.back {
+    background-image: url(../cards_svg/b02.svg) !important;
+}
