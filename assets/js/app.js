@@ -5,6 +5,7 @@
     // s : スペード, d : ダイヤ, h : ハート, c : クローバー
     const suits = ['s', 'd', 'h', 'c'];
 
+    // カード情報クラス
     class Card {
         constructor(suit, num) {
             this.suit = suit;
@@ -17,10 +18,14 @@
     // カード情報を配列に格納
     for (let i = 0; i < suits.length; i++) {
         for (let j = 1; j <= 13; j++) {
-            let card = new Card(suits[i], j);
+            const card = new Card(suits[i], j);
             cards.push(card);
         }
     }
+
+    // 残カード数,操作カウンターの変数設定
+    let remain = cards.length;
+    let counter = 0;
 
     // シャッフルする関数
     const shuffle = (arrays) => {
@@ -52,9 +57,11 @@
             firstCard = flippedCard; // めくったカードをfirstCardに設定
         } else {
             //2枚目だったら1枚目と比較して結果を判定する。
+            counter++;
             if (firstCard.num === flippedCard.num) {
                 //2枚が同じだった時、firstCardを初期値に戻す
                 firstCard = null;
+                remain = remain - 2;
             } else {
                 // 2枚が違う数字だった時の処理
                 flipTimerId = setTimeout(function () {
@@ -67,9 +74,13 @@
                 }, 1300); // 1.3秒後に処理を完了
             }
         }
+        if (remain <= 0){
+            window.alert('おめでとうございます！'+ counter + '回の操作で完了しました。');
+        }
     };
-    const table = document.querySelector('.table');
+
     // シャッフルし、HTML生成
+    const table = document.querySelector('.table');
     const shuffleCard = () => {
         const shuffled = shuffle(cards);
         for (let i = 0; i < suits.length; i++) {
