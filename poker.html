@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Concentration</title>
+        <title>Poker</title>
         <!-- google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -93,7 +93,7 @@
                     />
                 </g>
             </svg>
-            <h2>Concentration</h2>
+            <h2>Poker</h2>
             <svg
                 width="50pt"
                 height="50pt"
@@ -155,8 +155,14 @@
         </header>
         <!-- ここに生成されます -->
         <main>
-            <table class="cardTable"></table>
+            <table class="cardTable" id="js-yourCards"></table>
+            <p class="message" id="js-message">
+                交換するカードをクリックし裏返してください
+            </p>
+            <button class="button" id="js-cardExchange">
+                Card Exchange
+            </button>
         </main>
-        <script src="./assets/js/app.js"></script>
+        <script src="./assets/js/poker.js"></script>
     </body>
 </html>
