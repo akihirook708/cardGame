@@ -88,28 +88,6 @@
     const deck = new Deck(suits,numbers,1);
     setCard(deck);
 
-    //Card Exchange ボタン押下時の処理
-    $cardExchange.addEventListener('click',(e) => {
-        e.preventDefault();
-        e.target.classList.add('hidden');
-        console.log(e.target)
-        const message = $dom.getElementById('js-message');
-        message.textContent = '';
-        const tr = $dom.getElementById('js-cards');
-        const tds = tr.getElementsByTagName('td');
-        for(i=0;i < tds.length;i++){
-            if(tds[i].textContent === 'exchange'){
-                tds[i].textContent = '';
-                const cards = deck.deal(1);
-                tds[i].style.backgroundImage = `url(./assets/cards_svg/${
-                    cards[0].front
-                })`;
-                tds[i].num = cards[0].num;
-                tds[i].suit = cards[0].suit;
-            };
-        };
-        judgment();
-    });
     // 役の判定
     const judgment = () => {
         let joker = 0;
@@ -189,5 +167,27 @@
         }
     };
 
+    //Card Exchange ボタン押下時の処理
+    $cardExchange.addEventListener('click',(e) => {
+        e.preventDefault();
+        e.target.classList.add('hidden');
+        console.log(e.target)
+        const message = $dom.getElementById('js-message');
+        message.textContent = '';
+        const tr = $dom.getElementById('js-cards');
+        const tds = tr.getElementsByTagName('td');
+        for(i=0;i < tds.length;i++){
+            if(tds[i].textContent === 'exchange'){
+                tds[i].textContent = '';
+                const cards = deck.deal(1);
+                tds[i].style.backgroundImage = `url(./assets/cards_svg/${
+                    cards[0].front
+                })`;
+                tds[i].num = cards[0].num;
+                tds[i].suit = cards[0].suit;
+            };
+        };
+        judgment();
+    });
 
 })();
